@@ -160,6 +160,9 @@ async def test_reconfigure(hass: HomeAssistant, config_entry: MockConfigEntry) -
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "reconfigure_successful"
     assert config_entry.data[CONF_API_KEY] == "other-key"
+    # The flow reloaded the entry; stop its polling again.
+    await hass.async_block_till_done()
+    assert await hass.config_entries.async_unload(config_entry.entry_id)
 
 
 async def test_reconfigure_wrong_controller(
