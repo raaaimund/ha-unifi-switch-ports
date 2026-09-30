@@ -62,11 +62,15 @@ statistics.
 
 ## The card
 
-The integration serves the card itself and loads it into the Home Assistant frontend.
-You don't have to add a dashboard resource. Browsers only load it on a page load, so
-after adding the integration, reload Home Assistant in the browser once (Ctrl+Shift+R).
-A notification reminds you; it disappears as soon as a card is running. In a dashboard
-choose **Add card → UniFi Switch Ports**, or in YAML:
+The integration serves the card itself and registers it as a dashboard resource
+(`/unifi_switch_ports/unifi-switch-ports-card.js?v=<version>`), updating the version on
+upgrades and removing it with the last config entry. You don't have to add it yourself.
+With dashboards in YAML mode it is loaded as an extra frontend module instead. Open
+browser tabs load resources only on a page load, so after adding or updating the
+integration reload Home Assistant in the browser once. A notification reminds you; it
+disappears as soon as a card is running, and the browser console then shows
+`UNIFI-SWITCH-PORTS-CARD <version>`. In a dashboard choose **Add card → UniFi Switch Ports**,
+or in YAML:
 
 ```yaml
 type: custom:unifi-switch-ports-card

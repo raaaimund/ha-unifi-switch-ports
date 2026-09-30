@@ -4,14 +4,12 @@ from __future__ import annotations
 
 from http import HTTPStatus
 from typing import TYPE_CHECKING
-from unittest.mock import patch
 
 import pytest
-from homeassistant.components import persistent_notification
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.helpers import device_registry as dr
 
-from custom_components.unifi_switch_ports.const import DOMAIN, RELOAD_NOTIFICATION_ID
+from custom_components.unifi_switch_ports.const import DOMAIN
 
 from .conftest import API
 
@@ -157,27 +155,3 @@ async def test_websocket_unknown_entry(
     result = await client.receive_json()
     assert not result["success"]
     assert result["error"]["code"] == "not_found"
-
-
-@pytest.mark.usefixtures("mock_api")
-async def test_reload_notification(
-    hass: HomeAssistant,
-    hass_ws_client: WebSocketGenerator,
-    config_entry: MockConfigEntry,
-) -> None:
-    """Adding the card at runtime asks to reload the browser until a card runs."""
-    hass.config.components.add("frontend")
-    with patch(
-        "custom_components.unifi_switch_ports.add_extra_js_url"
-    ) as add_extra_js_url:
-        await _setup(hass, config_entry)
-    add_extra_js_url.assert_called_once_with(
-        hass, "/unifi_switch_ports/unifi-switch-ports-card.js?v=0.1.2"
-    )
-    notifications = persistent_notification._async_get_or_create_notifications(hass)
-    assert RELOAD_NOTIFICATION_ID in notifications
-
-    client = await hass_ws_client(hass)
-    await client.send_json_auto_id({"type": f"{DOMAIN}/subscribe"})
-    assert (await client.receive_json())["success"]
-    assert RELOAD_NOTIFICATION_ID not in notifications

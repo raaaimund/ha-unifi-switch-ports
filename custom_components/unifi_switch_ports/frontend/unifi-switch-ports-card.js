@@ -254,7 +254,10 @@ class UnifiSwitchPortsCard extends HTMLElement {
   }
 }
 
+const VERSION = new URL(import.meta.url).searchParams.get('v') || 'dev';
+
 if (!customElements.get('unifi-switch-ports-card')) {
+  console.info(`%c UNIFI-SWITCH-PORTS-CARD %c ${VERSION} `, 'color:#fff;background:#1f78c1;font-weight:600', 'color:#1f78c1');
   customElements.define('unifi-switch-ports-card', UnifiSwitchPortsCard);
   window.customCards = window.customCards || [];
   window.customCards.push({

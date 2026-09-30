@@ -7,19 +7,16 @@ and serves the Lovelace card custom:unifi-switch-ports-card.
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import TYPE_CHECKING
 
-from homeassistant.components import persistent_notification
-from homeassistant.components.frontend import add_extra_js_url
-from homeassistant.components.http import StaticPathConfig
 from homeassistant.const import CONF_API_KEY, CONF_URL, CONF_VERIFY_SSL, Platform
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.loader import async_get_integration
 
 from .api import UnifiNetworkClient
-from .const import CARD_FILENAME, DOMAIN, FRONTEND_URL_BASE, RELOAD_NOTIFICATION_ID
+from .card import async_register_card, async_unregister_card
+from .const import DOMAIN
 from .coordinator import UnifiSwitchPortsCoordinator
 from .models import model_table
 from .websocket import async_register_websocket_commands
@@ -36,38 +33,10 @@ CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 
 async def async_setup(hass: HomeAssistant, _config: ConfigType) -> bool:
-    """Serve the card and load it into every frontend session."""
+    """Register the websocket API and the Lovelace card."""
     async_register_websocket_commands(hass)
-    # frontend is an after-dependency: always there in a normal installation,
-    # but not required to run the integration (e.g. in tests).
-    if "frontend" not in hass.config.components:
-        return True
     integration = await async_get_integration(hass, DOMAIN)
-    await hass.http.async_register_static_paths(
-        [
-            StaticPathConfig(
-                FRONTEND_URL_BASE,
-                str(Path(__file__).parent / "frontend"),
-                cache_headers=True,
-            )
-        ]
-    )
-    # The version query makes browsers fetch the card again after an update.
-    add_extra_js_url(
-        hass, f"{FRONTEND_URL_BASE}/{CARD_FILENAME}?v={integration.version}"
-    )
-    if hass.is_running:
-        # Set up at runtime (first entry added): open browser tabs only load
-        # extra modules on a page load. The card's first subscription
-        # dismisses this again (see websocket.py).
-        persistent_notification.async_create(
-            hass,
-            "The **UniFi Switch Ports** card is available after reloading "
-            "Home Assistant in your browser (Ctrl+Shift+R). In the companion "
-            "app, reset the frontend cache in the app settings.",
-            title="UniFi Switch Ports: reload the browser",
-            notification_id=RELOAD_NOTIFICATION_ID,
-        )
+    await async_register_card(hass, str(integration.version))
     return True
 
 
@@ -93,3 +62,16 @@ async def async_unload_entry(
 ) -> bool:
     """Unload a config entry."""
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+
+
+async def async_remove_entry(
+    hass: HomeAssistant, entry: UnifiSwitchPortsConfigEntry
+) -> None:
+    """Remove the card's dashboard resource with the last entry."""
+    others = [
+        e
+        for e in hass.config_entries.async_entries(DOMAIN)
+        if e.entry_id != entry.entry_id
+    ]
+    if not others:
+        await async_unregister_card(hass)
