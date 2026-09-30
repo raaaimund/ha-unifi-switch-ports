@@ -120,8 +120,9 @@ scripts/lint                             # ruff format + ruff check
 scripts/develop                          # run Home Assistant with the integration on :8123
 ```
 
-The GitHub workflows run hassfest, the HACS validation, ruff and the tests. The
-`.gitea/workflows` directory keeps them from running on a Gitea mirror.
+The GitHub workflows run hassfest, the HACS validation, ruff and the tests. A Gitea
+mirror runs `.gitea/workflows/ci.yaml` instead (ruff, tests, hassfest); it takes the
+commit from GitHub and needs no secrets.
 
 ## License
 

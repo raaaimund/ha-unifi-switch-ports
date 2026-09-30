@@ -1,3 +1,3 @@
-The workflows in `.github/workflows` are meant for GitHub (the HACS action
-needs the GitHub API). Gitea runs `.gitea/workflows` instead when this
-directory exists, so its presence keeps them from running on Gitea.
+`ci.yaml` runs on the Gitea pull mirror of this repository: ruff, pytest and
+hassfest. Because this directory exists, Gitea ignores `.github/workflows`,
+which are meant for GitHub (the HACS action needs the GitHub API).

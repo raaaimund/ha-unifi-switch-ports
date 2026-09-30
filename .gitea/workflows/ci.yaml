@@ -1,0 +1,62 @@
+# CI on the Gitea pull mirror of this repository (a mirror sync triggers push).
+# GitHub ignores this directory and runs .github/workflows instead; Gitea runs
+# only this directory as long as it exists.
+#
+# The checkout comes from GitHub, where the repository is public: the mirror's
+# HTTP git may be disabled, and no actions (`uses:`) are needed, so the jobs
+# don't depend on the runner's default image or an actions mirror. The HACS
+# validation needs the GitHub API and runs on GitHub only.
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  SOURCE: https://github.com/raaaimund/ha-unifi-switch-ports/archive/${{ gitea.sha }}.tar.gz
+
+jobs:
+  lint-test:
+    name: Ruff and pytest
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.14
+    steps:
+      - name: Fetch the commit
+        run: |
+          mkdir -p src
+          wget -qO- "$SOURCE" | tar -xz --strip-components=1 -C src
+
+      - name: Install requirements
+        working-directory: src
+        run: |
+          python3 -m pip install --quiet --root-user-action=ignore -r requirements_common.txt
+          python3 -m pip install --quiet --root-user-action=ignore -r requirements_test.txt
+
+      - name: Ruff
+        working-directory: src
+        run: |
+          python3 -m ruff check .
+          python3 -m ruff format . --check
+
+      - name: Pytest
+        working-directory: src
+        run: python3 -m pytest tests
+
+  hassfest:
+    name: Hassfest
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/home-assistant/hassfest
+    steps:
+      - name: Fetch the commit
+        run: |
+          mkdir -p /tmp/src
+          wget -qO- "$SOURCE" | tar -xz --strip-components=1 -C /tmp/src
+
+      - name: Validate
+        working-directory: /tmp/src
+        run: /usr/src/homeassistant/script/hassfest/docker/entrypoint.sh
