@@ -1,0 +1,81 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mit dem UniFi-Controller verbinden",
+        "description": "Erstelle einen API-Schlüssel in UniFi Network unter Einstellungen → Control Plane → Integrationen. Ein Schlüssel mit Lesezugriff reicht.",
+        "data": {
+          "url": "Controller-URL",
+          "api_key": "API-Schlüssel",
+          "verify_ssl": "SSL-Zertifikat prüfen"
+        },
+        "data_description": {
+          "url": "Adresse der UniFi-Konsole oder Network-Anwendung, z. B. https://192.168.1.1.",
+          "api_key": "API-Schlüssel von UniFi Network.",
+          "verify_ssl": "UniFi-Konsolen verwenden standardmäßig ein selbstsigniertes Zertifikat; nur aktivieren, wenn der Controller ein vertrauenswürdiges hat."
+        }
+      },
+      "site": {
+        "title": "Site auswählen",
+        "data": {
+          "site": "Site"
+        }
+      },
+      "reauth_confirm": {
+        "title": "UniFi-API-Schlüssel abgelehnt",
+        "description": "Der Controller {url} hat den API-Schlüssel abgelehnt. Gib einen neuen ein.",
+        "data": {
+          "api_key": "API-Schlüssel"
+        }
+      },
+      "reconfigure": {
+        "title": "UniFi-Verbindung ändern",
+        "data": {
+          "url": "Controller-URL",
+          "api_key": "API-Schlüssel",
+          "verify_ssl": "SSL-Zertifikat prüfen"
+        },
+        "data_description": {
+          "url": "Adresse der UniFi-Konsole oder Network-Anwendung, z. B. https://192.168.1.1.",
+          "api_key": "API-Schlüssel von UniFi Network.",
+          "verify_ssl": "UniFi-Konsolen verwenden standardmäßig ein selbstsigniertes Zertifikat; nur aktivieren, wenn der Controller ein vertrauenswürdiges hat."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zum UniFi-Controller fehlgeschlagen.",
+      "invalid_auth": "Der API-Schlüssel wurde abgelehnt.",
+      "no_sites": "Der API-Schlüssel hat auf keine Site Zugriff.",
+      "unknown": "Unerwarteter Fehler."
+    },
+    "abort": {
+      "already_configured": "Diese Site ist bereits eingerichtet.",
+      "reauth_successful": "Die erneute Anmeldung war erfolgreich.",
+      "reconfigure_successful": "Die Neukonfiguration war erfolgreich.",
+      "site_not_found": "Die eingerichtete Site gibt es auf diesem Controller nicht mehr.",
+      "wrong_controller": "Das ist ein anderer Controller als der eingerichtete."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "ports_up": {
+        "name": "Aktive Ports",
+        "unit_of_measurement": "Ports"
+      },
+      "poe_power": {
+        "name": "PoE-Leistung"
+      }
+    }
+  },
+  "exceptions": {
+    "invalid_auth": {
+      "message": "Der UniFi-Controller hat den API-Schlüssel abgelehnt."
+    },
+    "site_not_found": {
+      "message": "Die UniFi-Site {site} existiert nicht."
+    },
+    "update_failed": {
+      "message": "Fehler beim Abrufen der Daten vom UniFi-Controller: {error}"
+    }
+  }
+}

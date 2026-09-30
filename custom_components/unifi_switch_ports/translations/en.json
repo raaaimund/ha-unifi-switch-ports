@@ -1,0 +1,81 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to your UniFi controller",
+        "description": "Create an API key in UniFi Network under Settings → Control Plane → Integrations. A read-only key is enough.",
+        "data": {
+          "url": "Controller URL",
+          "api_key": "API key",
+          "verify_ssl": "Verify SSL certificate"
+        },
+        "data_description": {
+          "url": "Address of the UniFi console or Network application, e.g. https://192.168.1.1.",
+          "api_key": "UniFi Network API key.",
+          "verify_ssl": "UniFi consoles use a self-signed certificate by default; only enable this if the controller has a trusted one."
+        }
+      },
+      "site": {
+        "title": "Select the site",
+        "data": {
+          "site": "Site"
+        }
+      },
+      "reauth_confirm": {
+        "title": "UniFi API key rejected",
+        "description": "The controller {url} rejected the API key. Enter a new one.",
+        "data": {
+          "api_key": "API key"
+        }
+      },
+      "reconfigure": {
+        "title": "Change the UniFi connection",
+        "data": {
+          "url": "Controller URL",
+          "api_key": "API key",
+          "verify_ssl": "Verify SSL certificate"
+        },
+        "data_description": {
+          "url": "Address of the UniFi console or Network application, e.g. https://192.168.1.1.",
+          "api_key": "UniFi Network API key.",
+          "verify_ssl": "UniFi consoles use a self-signed certificate by default; only enable this if the controller has a trusted one."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the UniFi controller.",
+      "invalid_auth": "The API key was rejected.",
+      "no_sites": "The API key has no access to any site.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This site is already configured.",
+      "reauth_successful": "Re-authentication was successful.",
+      "reconfigure_successful": "Re-configuration was successful.",
+      "site_not_found": "The configured site no longer exists on this controller.",
+      "wrong_controller": "This is a different controller than the configured one."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "ports_up": {
+        "name": "Ports up",
+        "unit_of_measurement": "ports"
+      },
+      "poe_power": {
+        "name": "PoE power"
+      }
+    }
+  },
+  "exceptions": {
+    "invalid_auth": {
+      "message": "The UniFi controller rejected the API key."
+    },
+    "site_not_found": {
+      "message": "The UniFi site {site} does not exist."
+    },
+    "update_failed": {
+      "message": "Error fetching data from the UniFi controller: {error}"
+    }
+  }
+}

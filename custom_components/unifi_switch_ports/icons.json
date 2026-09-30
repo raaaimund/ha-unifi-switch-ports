@@ -1,0 +1,12 @@
+{
+  "entity": {
+    "sensor": {
+      "ports_up": {
+        "default": "mdi:ethernet"
+      },
+      "poe_power": {
+        "default": "mdi:flash"
+      }
+    }
+  }
+}

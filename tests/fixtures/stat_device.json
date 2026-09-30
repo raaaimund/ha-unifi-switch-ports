@@ -1,0 +1,511 @@
+{
+ "meta": {
+  "rc": "ok"
+ },
+ "data": [
+  {
+   "name": "Rack Switch",
+   "model": "USWED37",
+   "type": "usw",
+   "mac": "aa:00:00:00:00:75",
+   "state": 1,
+   "ip": "192.0.2.74",
+   "version": "7.2.1",
+   "port_table": [
+    {
+     "port_idx": 1,
+     "name": "Port 1",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 2500,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 1866,
+     "rx_bytes-r": 1689,
+     "port_poe": true,
+     "poe_power": "12.99",
+     "last_connection": {
+      "connected": true,
+      "mac": "bb:00:00:00:00:40"
+     }
+    },
+    {
+     "port_idx": 2,
+     "name": "Port 2",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 2500,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 42511,
+     "rx_bytes-r": 45767,
+     "port_poe": true,
+     "poe_power": "0.00",
+     "last_connection": {
+      "connected": true,
+      "mac": "bb:00:00:00:00:32"
+     }
+    },
+    {
+     "port_idx": 3,
+     "name": "Port 3",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 100,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 344,
+     "rx_bytes-r": 105,
+     "port_poe": true,
+     "poe_power": "1.72",
+     "last_connection": {
+      "connected": true,
+      "mac": "bb:00:00:00:00:20"
+     }
+    },
+    {
+     "port_idx": 4,
+     "name": "Port 4",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 2500,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 12991,
+     "rx_bytes-r": 16445,
+     "port_poe": true,
+     "poe_power": "11.83",
+     "last_connection": {
+      "connected": true,
+      "mac": "aa:00:00:00:00:76"
+     }
+    },
+    {
+     "port_idx": 5,
+     "name": "Port 5",
+     "media": "2P5GE",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 0,
+     "rx_bytes-r": 0,
+     "port_poe": true,
+     "poe_power": "0.00",
+     "last_connection": {
+      "connected": false,
+      "mac": "bb:00:00:00:00:59"
+     }
+    },
+    {
+     "port_idx": 6,
+     "name": "Port 6",
+     "media": "2P5GE",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 0,
+     "rx_bytes-r": 0,
+     "port_poe": true,
+     "poe_power": "0.00"
+    },
+    {
+     "port_idx": 7,
+     "name": "Port 7",
+     "media": "2P5GE",
+     "up": false,
+     "enable": false,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 0,
+     "rx_bytes-r": 0,
+     "port_poe": true,
+     "poe_power": "0.00"
+    },
+    {
+     "port_idx": 8,
+     "name": "Port 8",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 2500,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 184408,
+     "rx_bytes-r": 36530,
+     "port_poe": true,
+     "poe_power": "0.00",
+     "last_connection": {
+      "connected": true,
+      "mac": "bb:00:00:00:00:30"
+     }
+    },
+    {
+     "port_idx": 9,
+     "name": "Port 9",
+     "media": "10GE",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 0,
+     "rx_bytes-r": 0
+    },
+    {
+     "port_idx": 10,
+     "name": "Port 10",
+     "media": "SFP+",
+     "up": true,
+     "enable": true,
+     "speed": 10000,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 27155,
+     "rx_bytes-r": 167795,
+     "is_uplink": true,
+     "sfp_found": true,
+     "sfp_part": "UF-MM-10G",
+     "last_connection": {
+      "connected": true,
+      "mac": "aa:00:00:00:00:77"
+     }
+    }
+   ]
+  },
+  {
+   "name": "UCG Fiber",
+   "model": "UDMA6A8",
+   "type": "udm",
+   "mac": "aa:00:00:00:00:77",
+   "state": 1,
+   "ip": "192.0.2.1",
+   "version": "4.3",
+   "port_table": [
+    {
+     "port_idx": 1,
+     "name": "Port 1",
+     "media": "2.5GE",
+     "up": true,
+     "enable": true,
+     "speed": 1000,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 679,
+     "rx_bytes-r": 0,
+     "network_name": "lan"
+    },
+    {
+     "port_idx": 2,
+     "name": "Port 2",
+     "media": "2.5GE",
+     "up": false,
+     "enable": true,
+     "speed": 10,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 0,
+     "rx_bytes-r": 0
+    },
+    {
+     "port_idx": 3,
+     "name": "Port 3",
+     "media": "2.5GE",
+     "up": false,
+     "enable": true,
+     "speed": 10,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 0,
+     "rx_bytes-r": 0
+    },
+    {
+     "port_idx": 4,
+     "name": "Port 4",
+     "media": "2.5GE",
+     "up": false,
+     "enable": true,
+     "speed": 10,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 0,
+     "rx_bytes-r": 0,
+     "port_poe": true,
+     "poe_power": "0.00"
+    },
+    {
+     "port_idx": 5,
+     "name": "Port 5",
+     "media": "10GE",
+     "up": true,
+     "enable": true,
+     "speed": 2500,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 88662,
+     "rx_bytes-r": 1847548,
+     "is_uplink": true,
+     "network_name": "wan",
+     "last_connection": {
+      "connected": true,
+      "mac": "aa:00:00:00:00:84"
+     }
+    },
+    {
+     "port_idx": 6,
+     "name": "SFP+ 1",
+     "media": "SFP+",
+     "up": true,
+     "enable": true,
+     "speed": 10000,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 346338,
+     "rx_bytes-r": 19007,
+     "sfp_found": true,
+     "sfp_part": "UF-MM-10G",
+     "last_connection": {
+      "connected": true,
+      "mac": "aa:00:00:00:00:75"
+     }
+    },
+    {
+     "port_idx": 7,
+     "name": "SFP+ 2",
+     "media": "SFP+",
+     "up": false,
+     "enable": true,
+     "speed": 10,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 0,
+     "rx_bytes-r": 0,
+     "sfp_found": true,
+     "sfp_part": "UF-MM-10G",
+     "network_name": "wan2"
+    }
+   ]
+  },
+  {
+   "name": "US 8",
+   "model": "USC8",
+   "type": "usw",
+   "mac": "aa:00:00:00:00:80",
+   "state": 0,
+   "port_table": [
+    {
+     "port_idx": 1,
+     "name": "Port 1",
+     "media": "GE",
+     "op_mode": "switch",
+     "enabled": true
+    },
+    {
+     "port_idx": 2,
+     "name": "Port 2",
+     "media": "GE",
+     "op_mode": "switch",
+     "enabled": true
+    },
+    {
+     "port_idx": 3,
+     "name": "Port 3",
+     "media": "GE",
+     "op_mode": "switch",
+     "enabled": true
+    },
+    {
+     "port_idx": 4,
+     "name": "Port 4",
+     "media": "GE",
+     "op_mode": "switch",
+     "enabled": true
+    },
+    {
+     "port_idx": 5,
+     "name": "Port 5",
+     "media": "GE",
+     "op_mode": "switch",
+     "enabled": true
+    },
+    {
+     "port_idx": 6,
+     "name": "Port 6",
+     "media": "GE",
+     "op_mode": "switch",
+     "enabled": true
+    },
+    {
+     "port_idx": 7,
+     "name": "Port 7",
+     "media": "GE",
+     "op_mode": "switch",
+     "enabled": false
+    },
+    {
+     "port_idx": 8,
+     "name": "Port 8",
+     "media": "GE",
+     "op_mode": "switch",
+     "enabled": true
+    }
+   ]
+  },
+  {
+   "name": "Hall AP",
+   "model": "U7LR",
+   "type": "uap",
+   "mac": "aa:00:00:00:00:74",
+   "state": 1,
+   "ip": "192.0.2.128",
+   "port_table": []
+  },
+  {
+   "name": "Rack AP",
+   "model": "U7PROMAX",
+   "type": "uap",
+   "mac": "aa:00:00:00:00:76",
+   "state": 1,
+   "ip": "192.0.2.51",
+   "port_table": []
+  },
+  {
+   "name": "Office Switch",
+   "model": "USWED36",
+   "type": "usw",
+   "mac": "aa:00:00:00:00:84",
+   "state": 1,
+   "ip": "192.0.2.157",
+   "port_table": [
+    {
+     "port_idx": 1,
+     "name": "Port 1",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 1000,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 1000,
+     "rx_bytes-r": 500
+    },
+    {
+     "port_idx": 2,
+     "name": "Port 2",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 1000,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 2000,
+     "rx_bytes-r": 1000
+    },
+    {
+     "port_idx": 3,
+     "name": "Port 3",
+     "media": "2P5GE",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 3000,
+     "rx_bytes-r": 1500
+    },
+    {
+     "port_idx": 4,
+     "name": "Port 4",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 2500,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 4000,
+     "rx_bytes-r": 2000
+    },
+    {
+     "port_idx": 5,
+     "name": "Port 5",
+     "media": "2P5GE",
+     "up": true,
+     "enable": true,
+     "speed": 2500,
+     "full_duplex": true,
+     "op_mode": "switch",
+     "tx_bytes-r": 5000,
+     "rx_bytes-r": 2500
+    },
+    {
+     "port_idx": 6,
+     "name": "Port 6",
+     "media": "2P5GE",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 6000,
+     "rx_bytes-r": 3000
+    },
+    {
+     "port_idx": 7,
+     "name": "Port 7",
+     "media": "2P5GE",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 7000,
+     "rx_bytes-r": 3500
+    },
+    {
+     "port_idx": 8,
+     "name": "Port 8",
+     "media": "2P5GE",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 8000,
+     "rx_bytes-r": 4000
+    },
+    {
+     "port_idx": 9,
+     "name": "Port 9",
+     "media": "10GE",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 9000,
+     "rx_bytes-r": 4500
+    },
+    {
+     "port_idx": 10,
+     "name": "Port 10",
+     "media": "SFP+",
+     "up": false,
+     "enable": true,
+     "speed": 0,
+     "full_duplex": false,
+     "op_mode": "switch",
+     "tx_bytes-r": 10000,
+     "rx_bytes-r": 5000
+    }
+   ]
+  }
+ ]
+}

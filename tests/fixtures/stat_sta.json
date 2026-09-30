@@ -1,0 +1,54 @@
+{
+ "meta": {
+  "rc": "ok"
+ },
+ "data": [
+  {
+   "mac": "bb:00:00:00:00:40",
+   "name": "nas",
+   "ip": "192.0.2.2",
+   "is_wired": true,
+   "sw_mac": "aa:00:00:00:00:75",
+   "sw_port": 1,
+   "network": "Servers"
+  },
+  {
+   "mac": "bb:00:00:00:00:32",
+   "hostname": "server-2",
+   "ip": "192.0.2.3",
+   "is_wired": true,
+   "sw_mac": "aa:00:00:00:00:75",
+   "sw_port": 2
+  },
+  {
+   "mac": "bb:00:00:00:00:30",
+   "hostname": "server-1",
+   "ip": "192.0.2.2",
+   "is_wired": true,
+   "sw_mac": "aa:00:00:00:00:75",
+   "sw_port": 8
+  },
+  {
+   "mac": "bb:00:00:00:00:31",
+   "hostname": "vm-1",
+   "ip": "192.0.2.105",
+   "is_wired": true,
+   "sw_mac": "aa:00:00:00:00:75",
+   "sw_port": 8
+  },
+  {
+   "mac": "bb:00:00:00:00:20",
+   "name": "sensor-1",
+   "ip": "192.0.2.201",
+   "is_wired": true,
+   "sw_mac": "aa:00:00:00:00:75",
+   "sw_port": 3
+  },
+  {
+   "mac": "cc:00:00:00:00:01",
+   "hostname": "phone",
+   "ip": "192.0.2.50",
+   "is_wired": false
+  }
+ ]
+}

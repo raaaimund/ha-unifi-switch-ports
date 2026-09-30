@@ -1,0 +1,21 @@
+{
+  "domain": "unifi_switch_ports",
+  "name": "UniFi Switch Ports",
+  "after_dependencies": [
+    "frontend"
+  ],
+  "codeowners": [
+    "@raaaimund"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "http",
+    "websocket_api"
+  ],
+  "documentation": "https://github.com/raaaimund/ha-unifi-switch-ports",
+  "integration_type": "hub",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/raaaimund/ha-unifi-switch-ports/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
