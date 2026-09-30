@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from pytest_homeassistant_custom_component.typing import WebSocketGenerator
 
 CARD = "/unifi_switch_ports/unifi-switch-ports-card.js"
-VERSION = "0.1.3"
+VERSION = "0.1.4"
 
 
 def _card_resources(hass: HomeAssistant) -> list[dict]:

@@ -34,8 +34,10 @@ data rate and PoE for every port. It includes a Lovelace card and a few sensors.
 
 ### HACS
 
-HACS installs from GitHub repositories only. Once this repository is on GitHub, add it
-in HACS as a custom repository (category *Integration*), install
+[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=raaaimund&repository=ha-unifi-switch-ports&category=integration)
+
+Or add it by hand: **HACS → ⋮ → Custom repositories**, repository
+`https://github.com/raaaimund/ha-unifi-switch-ports`, type *Integration*. Then download
 **UniFi Switch Ports** and restart Home Assistant.
 
 ### Manual
@@ -118,9 +120,8 @@ scripts/lint                             # ruff format + ruff check
 scripts/develop                          # run Home Assistant with the integration on :8123
 ```
 
-The GitHub workflows run hassfest, the HACS validation, ruff and the tests. On Gitea
-they are switched off by the `.gitea/workflows` directory, because the HACS action needs
-GitHub.
+The GitHub workflows run hassfest, the HACS validation, ruff and the tests. The
+`.gitea/workflows` directory keeps them from running on a Gitea mirror.
 
 ## License
 
