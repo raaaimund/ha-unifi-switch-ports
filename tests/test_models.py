@@ -59,3 +59,13 @@ def test_totals() -> None:
     assert rack.ports_up == 6
     assert rack.poe_power == 26.5
     assert rack.has_poe is True
+
+
+def test_transient_states_count_as_online() -> None:
+    """A config push (provisioning) does not take a switch offline."""
+    devices = load_fixture("stat_device.json")["data"]
+    for device in devices:
+        if device["name"] == "Rack Switch":
+            device["state"] = 5
+    rack = build_switches(devices, [])["aa:00:00:00:00:75"]
+    assert rack.online is True

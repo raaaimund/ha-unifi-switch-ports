@@ -28,3 +28,8 @@ RELOAD_NOTIFICATION_ID = f"{DOMAIN}_reload_frontend"
 # UniFi device types that have switch ports.
 SWITCH_TYPES = frozenset({"usw", "udm", "uxg", "ugw"})
 GATEWAY_TYPES = frozenset({"udm", "uxg", "ugw"})
+
+# Device states in which a switch keeps forwarding traffic: connected,
+# firmware mismatch, provisioning (config push) and heartbeat missed. The last
+# two are short and would otherwise flap the switch to offline for a poll.
+ONLINE_STATES = frozenset({1, 3, 5, 6})

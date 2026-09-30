@@ -8,7 +8,7 @@ from functools import cache
 from pathlib import Path
 from typing import Any
 
-from .const import GATEWAY_TYPES, SWITCH_TYPES
+from .const import GATEWAY_TYPES, ONLINE_STATES, SWITCH_TYPES
 
 # Rows of port numbers as seen from the front, None marks a gap.
 type Layout = list[list[int | None]]
@@ -233,7 +233,7 @@ def build_switches(
             model=model,
             model_name=info.get("name", model),
             gateway=device.get("type") in GATEWAY_TYPES,
-            online=device.get("state") == 1,
+            online=device.get("state") in ONLINE_STATES,
             ip=device.get("ip"),
             version=device.get("version"),
             layout=layout,

@@ -172,7 +172,7 @@ async def test_reload_notification(
     ) as add_extra_js_url:
         await _setup(hass, config_entry)
     add_extra_js_url.assert_called_once_with(
-        hass, "/unifi_switch_ports/unifi-switch-ports-card.js?v=0.1.1"
+        hass, "/unifi_switch_ports/unifi-switch-ports-card.js?v=0.1.2"
     )
     notifications = persistent_notification._async_get_or_create_notifications(hass)
     assert RELOAD_NOTIFICATION_ID in notifications
