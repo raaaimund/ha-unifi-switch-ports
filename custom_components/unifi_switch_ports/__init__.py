@@ -10,6 +10,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from homeassistant.components import persistent_notification
 from homeassistant.components.frontend import add_extra_js_url
 from homeassistant.components.http import StaticPathConfig
 from homeassistant.const import CONF_API_KEY, CONF_URL, CONF_VERIFY_SSL, Platform
@@ -18,7 +19,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.loader import async_get_integration
 
 from .api import UnifiNetworkClient
-from .const import CARD_FILENAME, DOMAIN, FRONTEND_URL_BASE
+from .const import CARD_FILENAME, DOMAIN, FRONTEND_URL_BASE, RELOAD_NOTIFICATION_ID
 from .coordinator import UnifiSwitchPortsCoordinator
 from .models import model_table
 from .websocket import async_register_websocket_commands
@@ -55,6 +56,18 @@ async def async_setup(hass: HomeAssistant, _config: ConfigType) -> bool:
     add_extra_js_url(
         hass, f"{FRONTEND_URL_BASE}/{CARD_FILENAME}?v={integration.version}"
     )
+    if hass.is_running:
+        # Set up at runtime (first entry added): open browser tabs only load
+        # extra modules on a page load. The card's first subscription
+        # dismisses this again (see websocket.py).
+        persistent_notification.async_create(
+            hass,
+            "The **UniFi Switch Ports** card is available after reloading "
+            "Home Assistant in your browser (Ctrl+Shift+R). In the companion "
+            "app, reset the frontend cache in the app settings.",
+            title="UniFi Switch Ports: reload the browser",
+            notification_id=RELOAD_NOTIFICATION_ID,
+        )
     return True
 
 

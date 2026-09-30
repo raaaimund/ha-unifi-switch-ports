@@ -21,6 +21,10 @@ SIGNAL_UPDATE = f"{DOMAIN}_update"
 FRONTEND_URL_BASE = f"/{DOMAIN}"
 CARD_FILENAME = "unifi-switch-ports-card.js"
 
+# Persistent notification asking to reload the browser after the card was
+# registered while Home Assistant was already running.
+RELOAD_NOTIFICATION_ID = f"{DOMAIN}_reload_frontend"
+
 # UniFi device types that have switch ports.
 SWITCH_TYPES = frozenset({"usw", "udm", "uxg", "ugw"})
 GATEWAY_TYPES = frozenset({"udm", "uxg", "ugw"})

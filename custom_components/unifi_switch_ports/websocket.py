@@ -5,12 +5,12 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Any
 
 import voluptuous as vol
-from homeassistant.components import websocket_api
+from homeassistant.components import persistent_notification, websocket_api
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
 
-from .const import DOMAIN, SIGNAL_UPDATE
+from .const import DOMAIN, RELOAD_NOTIFICATION_ID, SIGNAL_UPDATE
 
 if TYPE_CHECKING:
     from .data import UnifiSwitchPortsConfigEntry
@@ -71,6 +71,8 @@ def ws_subscribe(
     msg: dict[str, Any],
 ) -> None:
     """Send the switches of a site now and after every update."""
+    # A card is running, so this browser has loaded the card module.
+    persistent_notification.async_dismiss(hass, RELOAD_NOTIFICATION_ID)
     entry = _entry(hass, msg.get("entry_id"))
     if entry is None:
         connection.send_error(

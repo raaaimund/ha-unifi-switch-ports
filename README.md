@@ -63,8 +63,10 @@ statistics.
 ## The card
 
 The integration serves the card itself and loads it into the Home Assistant frontend.
-You don't have to add a dashboard resource. In a dashboard choose
-**Add card → UniFi Switch Ports**, or in YAML:
+You don't have to add a dashboard resource. Browsers only load it on a page load, so
+after adding the integration, reload Home Assistant in the browser once (Ctrl+Shift+R).
+A notification reminds you; it disappears as soon as a card is running. In a dashboard
+choose **Add card → UniFi Switch Ports**, or in YAML:
 
 ```yaml
 type: custom:unifi-switch-ports-card
@@ -73,7 +75,7 @@ type: custom:unifi-switch-ports-card
 | Option | Default | Description |
 |---|---|---|
 | `entry_id` | first entry | The UniFi site (config entry) to show; the card editor offers a picker |
-| `show_offline` | `true` | Also show switches that are offline |
+| `show_offline` | `true` | Also show switches that are offline (card editor: *Show offline switches*) |
 | `show_legend` | `true` | Show the colour legend below the switches |
 
 The card takes the full width in sections views. Its data comes over a websocket
