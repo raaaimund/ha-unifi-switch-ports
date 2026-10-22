@@ -5,16 +5,18 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Any
 
 from homeassistant.components.diagnostics import async_redact_data
-from homeassistant.const import CONF_API_KEY
+from homeassistant.const import CONF_API_KEY, CONF_URL
 
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
 
     from .data import UnifiSwitchPortsConfigEntry
 
-TO_REDACT = {CONF_API_KEY}
-# MAC and IP addresses of switches and of what is connected to their ports.
-TO_REDACT_SWITCHES = {"mac", "ip", "detail"}
+# The title holds the site name and the controller host.
+TO_REDACT = {CONF_API_KEY, CONF_URL, "title"}
+# MAC and IP addresses and names of switches, ports, networks and what is
+# connected to them; client names are often personal ("Anna's iPhone").
+TO_REDACT_SWITCHES = {"mac", "ip", "detail", "name", "network"}
 
 
 async def async_get_config_entry_diagnostics(
